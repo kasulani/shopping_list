@@ -1,0 +1,29 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "Shopping List web app built using react",
+  "main": "index.js",
+  "dependencies": {
+    "eslint": "^4.8.0",
+    "eslint-plugin-react-native": "^3.1.0"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kasulani/shopping_list.git"
+  },
+  "author": "Emmanuel King Kasulani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kasulani/shopping_list/issues"
+  },
+  "homepage": "https://github.com/kasulani/shopping_list#readme"
+}
