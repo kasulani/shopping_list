@@ -6,7 +6,9 @@
   "dependencies": {
     "eslint": "^4.8.0",
     "eslint-plugin-react-native": "^3.1.0",
-    "react-router": "^4.2.0"
+    "react-router": "^4.2.0",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.74.2"
   },
   "devDependencies": {
     "eslint-config-airbnb": "^15.1.0",
