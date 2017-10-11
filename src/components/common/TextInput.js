@@ -1,7 +1,8 @@
 //This is a stateless functional component/presentational component
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const TextInput = props => {
+const TextInput = (props) => {
   let wrapperClass = "form-group";
   if(props.error && props.error.length > 0){
     wrapperClass += " " + "has-error";
@@ -22,6 +23,15 @@ const TextInput = props => {
       </div>
     </div>
   );
+};
+
+TextInput.propTypes = {
+  error: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  placeholder: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired
 };
 
 export default TextInput;

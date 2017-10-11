@@ -17,7 +17,7 @@ class HomePage extends React.Component {
             <p><a className="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
           </div>
           <div className="col-lg-4">
-            <p><h4>Login</h4></p>
+            <p><h4>Login Area</h4></p>
             <form>
               <TextInput
                 name="username"
