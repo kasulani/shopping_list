@@ -3,6 +3,10 @@ import { Link } from 'react-dom';
 import TextInput from '../common/TextInput';
 
 class HomePage extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  
   render() {
     return(
       <div className="jumbotron">
