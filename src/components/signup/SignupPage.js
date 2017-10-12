@@ -14,9 +14,8 @@ class HomePage extends React.Component {
         <div className="row">
           <div className="col-lg-8">
             <p className="lead">
-              This is an application that allows you to record and share things you want to
-              spend your money on and keep track of your shopping lists and the best part of
-              it all is that you can share your Shopping List with your friends.
+              Please provide us some information and we create an account for you to start having fun!
+              We promise it will take a short time.
             </p>
             <p><a className="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
           </div>
@@ -26,16 +25,19 @@ class HomePage extends React.Component {
               <TextInput
                 name="username"
                 label="username"
+                placeholder="Enter your email address here"
                 />
               <TextInput
                 name="password1"
                 label="password"
+                placeholder="Enter your password here"
               />
               <TextInput
                 name="password2"
                 label="confirm password"
+                placeholder="confirm your password here"
               />
-              <input type="submit" value="Login" className="btn btn-sm btn-primary" role="button"/>
+              <input type="submit" value="Create Account" className="btn btn-sm btn-success" role="button"/>
             </form>
           </div>
         </div>
