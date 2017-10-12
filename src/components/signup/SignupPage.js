@@ -10,7 +10,7 @@ class HomePage extends React.Component {
   render() {
     return(
       <div className="jumbotron">
-        <h1>Shopping List</h1>
+        <h1>Welcome new user</h1>
         <div className="row">
           <div className="col-lg-8">
             <p className="lead">
