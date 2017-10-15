@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-dom';
+import { Link } from 'react-router';
 import TextInput from '../common/TextInput';
 
 class HomePage extends React.Component {
   constructor(props){
     super(props);
   }
-  
+
   render() {
     return(
       <div className="jumbotron">
@@ -18,7 +18,7 @@ class HomePage extends React.Component {
               spend your money on and keep track of your shopping lists and the best part of
               it all is that you can share your Shopping List with your friends.
             </p>
-            <p><a className="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+            <p><Link to="signup" className="btn btn-lg btn-success" href="#" role="button">Sign up today</Link></p>            
           </div>
           <div className="col-lg-4">
             <h4>Login Area</h4>
