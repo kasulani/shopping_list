@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-dom';
+import { Link } from 'react-router';
 import TextInput from '../common/TextInput';
 
 class HomePage extends React.Component {
@@ -12,15 +12,15 @@ class HomePage extends React.Component {
       <div className="jumbotron">
         <h1>Welcome new user</h1>
         <div className="row">
-          <div className="col-lg-8">
+          <div className="col-lg-6">
             <p className="lead">
               Please provide us some information and we create an account for you to start having fun!
               We promise it will take a short time.
             </p>
-            <p><a className="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+            <p>If you already have an account, go ahead and click on <Link to="/" role="button">Login</Link></p>
           </div>
-          <div className="col-lg-4">
-            <h4>Signup</h4>
+          <div className="col-lg-6">
+            <h3>Signup</h3>
             <form>
               <TextInput
                 name="username"

@@ -18,7 +18,7 @@ class HomePage extends React.Component {
               spend your money on and keep track of your shopping lists and the best part of
               it all is that you can share your Shopping List with your friends.
             </p>
-            <p><Link to="signup" className="btn btn-lg btn-success" href="#" role="button">Sign up today</Link></p>            
+            <p><Link to="signup" className="btn btn-lg btn-success" role="button">Sign up today</Link></p>            
           </div>
           <div className="col-lg-4">
             <h4>Login Area</h4>
