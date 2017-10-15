@@ -16,7 +16,6 @@ const TextInput = (props) => {
           name={props.name}
           className="form-control"
           placeholder={props.placeholder}
-          ref={props.name}
           value={props.value}
           onChange={props.onChange}/>
         <div className="input">{props.error}</div>
