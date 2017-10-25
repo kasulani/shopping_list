@@ -7,8 +7,8 @@ class App extends React.Component {
   render(){
     return(
       <div className="container-fluid">
-        {/*react router will passing children as properties to this class*/}
-        {this.props.children}        
+        {/*react router will pass children as properties to this class*/}
+        {this.props.children}
       </div>
     );
   }
