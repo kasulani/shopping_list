@@ -3,6 +3,7 @@ import { Route, IndexRoute } from 'react-router';
 import App from './components/App';
 import HomePage from './components/home/HomePage';
 import SignupPage from './components/signup/SignupPage';
+import DashBoard from './components/dashboard/DashBoard';
 
 export default (
   <Route path="/" component={App}>
@@ -10,5 +11,6 @@ export default (
     <IndexRoute component={HomePage}/>
     <Route path="/" component={HomePage}/>
     <Route path="signup" component={SignupPage}/>
+    <Route path="dashboard" component={DashBoard}/>
   </Route>
 );
