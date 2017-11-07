@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import TextInput from '../common/TextInput';
 
-class HomePage extends React.Component {
+class SignupPage extends React.Component {
   constructor(props){
     super(props);
   }
@@ -46,4 +46,4 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage;
+export default SignupPage;
