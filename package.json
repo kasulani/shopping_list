@@ -2,7 +2,6 @@
   "name": "shopping_list",
   "version": "1.0.0",
   "description": "Shopping List web app built using react",
-  "proxy": "http://127.0.0.1:5000/",
   "scripts": {
     "start": "npm-run-all --parallel test:watch open:src lint:watch",
     "open:src": "babel-node tools/srcServer.js",
@@ -12,6 +11,7 @@
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {
+    "axios": "^0.17.0",
     "babel-polyfill": "6.8.0",
     "bootstrap": "3.3.6",
     "jquery": "2.2.3",
@@ -22,6 +22,8 @@
     "react-router": "2.4.0",
     "react-router-redux": "4.0.4",
     "redux": "3.5.2",
+    "redux-logger": "^3.0.6",
+    "redux-promise": "^0.5.3",
     "redux-thunk": "2.0.1",
     "toastr": "2.1.2"
   },
@@ -55,6 +57,7 @@
     "npm-run-all": "1.8.0",
     "open": "0.0.5",
     "react-addons-test-utils": "15.0.2",
+    "redux-devtools-extension": "^2.13.2",
     "redux-immutable-state-invariant": "1.2.3",
     "redux-mock-store": "1.0.2",
     "rimraf": "2.5.2",
