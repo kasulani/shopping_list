@@ -12,7 +12,7 @@ const TextInput = (props) => {
     <div className={wrapperClass}>
       <label htmlFor={props.name}>{props.label}</label>
       <div className="field">
-        <input type="text"
+        <input type={props.type}
           name={props.name}
           className="form-control"
           placeholder={props.placeholder}
