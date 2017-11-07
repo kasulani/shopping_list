@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import Footer from './common/Footer';
 
 class App extends React.Component {
+  // react router will pass children as properties to this class. The children
+  // are the container components configured in the routes
   render(){
     return(
       <div className="container-fluid">
-        {/*react router will pass children as properties to this class*/}
         {this.props.children}
       </div>
     );
