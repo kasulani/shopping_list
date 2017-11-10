@@ -10,10 +10,14 @@ import { LOGIN, REGISTER } from "./types";
 //import axios from "axios";
 import {AXIOS_INSTANCE} from "../configs";
 
-export function loginUser(user){
+export function loginUser(user, callback){
   const promise = AXIOS_INSTANCE.post('/auth/login',{
     username: user.username,
     password: user.password
+  });
+
+  promise.then((response)=>{
+    callback(response);
   });
 
   return {
@@ -30,7 +34,7 @@ export function registerUser(user, callback){
 
   promise.then((response)=>{
     callback(response);
-  })
+  });
 
   return {
     type:REGISTER,
