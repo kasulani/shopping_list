@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
 import {loginUser} from "../../actions/authActions";
 import PropTypes from 'prop-types';
+import toastr from "toastr";
+import {TOASTR_CONFIG} from "../../configs";
 
 class HomePage extends Component {
   constructor(props){
@@ -31,18 +33,21 @@ class HomePage extends Component {
 
   onChangeText(event){
     const user = this.state.user;
+    const errors = this.state.errors;
     //forevery stroke, store the change of the input field in the state
     if (event.target.name == 'username'){
       user.username = event.target.value;
+      errors.username = ""; // clear any errors
     }
     if (event.target.name == 'password'){
       user.password = event.target.value;
+      errors.password = ""; // clear any errors
     }
-    this.setState({user: user});
+    this.setState({user: user, errors:errors});
   }
 
   isLoginFormValid(){
-    // this method validates data for the login form 
+    // this method validates data for the login form
     let isValid = true;
     const errors = this.state.errors;
     this.setState({errors: {}}); // clear any errors
@@ -64,16 +69,22 @@ class HomePage extends Component {
   onFormSubmit(event){
     event.preventDefault(); // tells the browser, don't submit the form
     // make an api request to the auth/login endpoint via an action creator
-    // pass a callback function to the action creator, which will be called
-    // after the api call has been made and some custom logic has been applied
     if(!this.isLoginFormValid()){
       return;
     }
-    this.props.loginUser(this.state.user);
+    this.props.loginUser(this.state.user, (response)=>{ // callback
+      if (response.data.status == 'fail'){
+          toastr.error(
+            response.data.message, "Shopping List - Error", TOASTR_CONFIG);
+      }
+      /*if (response.data.token){
+        console.log(this.props.token);
+        browserHistory.push('/dashboard');
+      }*/
+    });
   }
 
   render() {
-    //console.log(this.props.token);
     return(
       <div className="jumbotron">
         <h1>Shopping List</h1>
@@ -94,7 +105,7 @@ class HomePage extends Component {
                 label="username"
                 placeholder="Enter your email address here"
                 onChange={this.onChangeText}
-                value={this.state.username}
+                value={this.state.user.username}
                 type="email"
                 error={this.state.errors.username}
                 />
@@ -103,7 +114,7 @@ class HomePage extends Component {
                 label="password"
                 placeholder="Enter your password here"
                 onChange={this.onChangeText}
-                value={this.state.password}
+                value={this.state.user.password}
                 type="password"
                 error={this.state.errors.password}
               />
