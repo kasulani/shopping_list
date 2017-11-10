@@ -6,7 +6,7 @@
  * promiseMiddleware where the promise will be resolved into data that will be
  * consumed by the reducer.
  */
-import { LOGIN } from "./types";
+import { LOGIN, REGISTER } from "./types";
 //import axios from "axios";
 import {AXIOS_INSTANCE} from "../configs";
 
@@ -18,6 +18,22 @@ export function loginUser(user){
 
   return {
     type:LOGIN,
+    payload: promise
+  };
+}
+
+export function registerUser(user, callback){
+  const promise = AXIOS_INSTANCE.post('/auth/register',{
+    username: user.username,
+    password: user.password
+  });
+
+  promise.then((response)=>{
+    callback(response);
+  })
+
+  return {
+    type:REGISTER,
     payload: promise
   };
 }
