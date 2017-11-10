@@ -89,14 +89,22 @@ class SignupPage extends React.Component {
     // make an api request to the auth/register endpoint via an action creator
     // note: password1 should be the same as password2
     this.props.registerUser(
-      {username: this.state.newUser.username, password: this.state.newUser.password1}, (response)=>{
-        if (response.data.status == 'fail'){
-          toastr.error(response.data.message,"Shopping List - Error", TOASTR_CONFIG);
-        }
-        if (response.data.status == 'pass'){
-          toastr.success(response.data.message,"Shopping List", TOASTR_CONFIG);
-        }
-      });
+      {
+        username: this.state.newUser.username,
+        password: this.state.newUser.password1}, (response)=>{ // callback
+            if (response.data.status == 'fail'){
+                toastr.error(
+                  response.data.message,
+                  "Shopping List - Error", TOASTR_CONFIG
+                );
+            }
+            if (response.data.status == 'pass'){
+                toastr.success(
+                  response.data.message,
+                  "Shopping List", TOASTR_CONFIG
+                );
+            }
+        });
   }
 
   render() {
