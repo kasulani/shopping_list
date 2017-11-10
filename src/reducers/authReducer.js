@@ -2,11 +2,21 @@
  *
  * Actions are handled in a reducer. A reducer is a function that accepts an
  * action and a state and returns a new state */
-import { LOGIN } from "../actions/types";
+import { LOGIN, REGISTER } from "../actions/types";
 
-export default function loginUserReducer(state = {}, action){
+export function loginUserReducer(state = {}, action){
   switch (action.type) {
     case LOGIN:
+      //return [...state, action.payload.data];
+      return action.payload.data;
+    default:
+      return state;
+  }
+}
+
+export function registerUser(state = {}, action){
+  switch (action.type) {
+    case REGISTER:
       //return [...state, action.payload.data];
       return action.payload.data;
     default:
