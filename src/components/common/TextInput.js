@@ -18,7 +18,7 @@ const TextInput = (props) => {
           placeholder={props.placeholder}
           value={props.value}
           onChange={props.onChange}/>
-        <div className="input">{props.error}</div>
+        <div>{props.error}</div>
       </div>
     </div>
   );
@@ -26,6 +26,7 @@ const TextInput = (props) => {
 
 TextInput.propTypes = {
   error: PropTypes.string,
+  type: PropTypes.string,
   name: PropTypes.string.isRequired,
   label: PropTypes.string,
   placeholder: PropTypes.string,
