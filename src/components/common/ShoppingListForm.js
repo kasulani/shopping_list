@@ -6,7 +6,7 @@ import TextArea from './TextArea';
 const ShoppingListForm = (props) => {
   return(
     <form id={props.formId} onSubmit={props.onFormSubmit}>
-      <TextInput
+      <TextInput id="nameOfList"
         label="List name"
         name="listName"
         type="text"
@@ -15,7 +15,7 @@ const ShoppingListForm = (props) => {
         value={props.ValueOfNameField}
         onChange={props.onChangeText}
       />
-      <TextArea
+      <TextArea id="descriptionOfList"
         label="Description"
         name="listDescription"
         placeholder="Enter a short description about your list"
