@@ -6,24 +6,29 @@
  * promiseMiddleware where the promise will be resolved into data that will be
  * consumed by the reducer.
  */
-import { LOGIN, REGISTER } from "./types";
+import { LOGIN, REGISTER, RESET_PASSWORD, LOG_OUT } from "./types";
 //import axios from "axios";
 import {AXIOS_INSTANCE} from "../configs";
 
-export function loginUser(user, callback){
-  const promise = AXIOS_INSTANCE.post('/auth/login',{
-    username: user.username,
-    password: user.password
-  });
+export function authUser(user, authAction){
+  if(authAction === 'login'){
+    const promise = AXIOS_INSTANCE.post('/auth/login',{
+      username: user.username,
+      password: user.password
+    });
 
-  promise.then((response)=>{
-    callback(response);
-  });
-
-  return {
-    type:LOGIN,
-    payload: promise
-  };
+    return {
+      type:LOGIN,
+      payload: promise
+    };
+  }
+  if(authAction === 'logout'){
+    // make an api call here
+    return {
+      type:LOG_OUT,
+      payload: user
+    };
+  }
 }
 
 export function registerUser(user, callback){
@@ -41,3 +46,30 @@ export function registerUser(user, callback){
     payload: promise
   };
 }
+
+export function resetPassword(user){
+  const promise = AXIOS_INSTANCE.post('/auth/reset-password',{
+    username: user.username,
+    old_password: user.oldPassword,
+    new_password: user.newPassword
+  });
+
+  return {
+    type:RESET_PASSWORD,
+    payload: promise
+  };
+}
+
+// export function logOutUser(user){
+//   // const promise = AXIOS_INSTANCE.post('/auth/reset-password',{
+//   //   username: user.username,
+//   //   old_password: user.oldPassword,
+//   //   new_password: user.newPassword
+//   // });
+//   // console.log("hello");
+//
+//   return {
+//     type:LOG_OUT,
+//     payload: user
+//   };
+// }
