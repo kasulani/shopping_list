@@ -18,7 +18,7 @@ const TextInput = (props) => {
           placeholder={props.placeholder}
           value={props.value}
           onChange={props.onChange}/>
-        <div>{props.error}</div>
+        <div style={{color: 'red'}}>{props.error}</div>
       </div>
     </div>
   );
