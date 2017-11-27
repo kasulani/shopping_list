@@ -3,10 +3,15 @@ import React from "react";
 import {mount, shallow} from "enzyme";
 import SimplePager from "../../components/common/SimplePager";
 
+let onPrevButtonClickCalled = false;
+let onNextButtonClickCalled = false;
+
 function setup(){
   const props ={
-    onPrevButtonClick: () =>{}, prev_page_state:"/example.com/?page=1&limit=2",
-    onNextButtonClick: () =>{}, next_page_state:"/example.com/?page=2&limit=2",
+    onPrevButtonClick: () =>{ onPrevButtonClickCalled = true; },
+    prev_page_state:"/example.com/?page=1&limit=2",
+    onNextButtonClick: () =>{ onNextButtonClickCalled = true; },
+    next_page_state:"/example.com/?page=2&limit=2",
     show: "true"
   };
   return shallow(<SimplePager {...props}/>);
@@ -29,6 +34,10 @@ describe('Run tests on SimplePager component', () => {
   it('shows the correct button text', () => {
     expect(simplePager.find('#previousBtn').text()).toEqual(' PREVIOUS PAGE');
   });
+  it('can call the previous button on click handler', () => {
+    simplePager.find('#previousBtn').simulate('click');
+    expect(onPrevButtonClickCalled).toEqual(true);
+  });
   // test next button
   it('has the correct button bootstrap class for the next button', () => {
     expect(simplePager.find('#nextBtn').props().className).
@@ -43,5 +52,9 @@ describe('Run tests on SimplePager component', () => {
   });
   it('shows the correct button text', () => {
     expect(simplePager.find('#nextBtn').text()).toEqual('NEXT PAGE');
+  });
+  it('can call the next button on click handler', () => {
+    simplePager.find('#nextBtn').simulate('click');
+    expect(onNextButtonClickCalled).toEqual(true);
   });
 });
