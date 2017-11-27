@@ -1,7 +1,6 @@
 import expect from "expect";
 import React from "react";
 import {mount, shallow} from "enzyme";
-import TextInput from "../../components/common/TextInput";
 import ShoppingListForm from "../../components/common/ShoppingListForm";
 
 let onChangeCalled = false;
