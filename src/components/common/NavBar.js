@@ -32,7 +32,7 @@ const NavBar = (props) => {
                   type="text" className="form-control" value={props.searchTerm}
                   placeholder="Search" onChange={props.onSearchTextChange}/>
               </div>
-              <button type="submit" className="btn btn-default btn-default-custom">Search</button>
+              <button id="searchBtn" type="submit" className="btn btn-default btn-default-custom">Search</button>
             </form>
             <ul className="nav navbar-nav navbar-right">
               <li><Link to="/lists/new">Add a list</Link></li>
