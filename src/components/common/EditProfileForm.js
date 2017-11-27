@@ -6,7 +6,7 @@ import TextArea from './TextArea';
 const EditProfileForm = (props) => {
   return(
     <form id={props.formId} onSubmit={props.onFormSubmit}>
-      <TextInput
+      <TextInput id="firstname"
         label="First name"
         name="firstName"
         type="text"
@@ -15,8 +15,8 @@ const EditProfileForm = (props) => {
         value={props.ValueOfFirstNameField}
         onChange={props.onChangeText}
       />
-      <TextInput
-        label="last name"
+      <TextInput id="lastname"
+        label="Last name"
         name="lastName"
         type="text"
         placeholder="Enter your last name"
@@ -24,7 +24,7 @@ const EditProfileForm = (props) => {
         value={props.ValueOfLastNameField}
         onChange={props.onChangeText}
       />
-      <TextArea
+      <TextArea id="profileDescription"
         label="Description"
         name="description"
         placeholder="Describe your self in a sentence"
