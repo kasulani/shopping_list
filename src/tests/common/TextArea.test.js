@@ -5,46 +5,51 @@ import TextArea from "../../components/common/TextArea";
 
 let onChangeCalled = false;
 
-function setup(){
+function setup(errorMsg){
   const props ={
     label:"subcounty", name:"customName", rows:"3", placeholder:"your subcounty",
     value:"busega", onChange: () => { onChangeCalled = true;},
-    error: "some error msg"
+    error: errorMsg
   };
   return shallow(<TextArea {...props}/>);
 }
 
 describe('Run tests on TextArea component', () => {
-  const textField = setup();
+  const testArea = setup("some error msg");
   it('has the correct label', () => {
-    expect(textField.find('label').text()).toEqual('subcounty');
+    expect(testArea.find('label').text()).toEqual('subcounty');
   });
   it('has the correct rows for the TextArea', () => {
-    expect(textField.find('textarea').props().rows).toEqual('3');
+    expect(testArea.find('textarea').props().rows).toEqual('3');
   });
   it('has the correct placeholder', () => {
-    expect(textField.find('textarea').props().placeholder).toEqual('your subcounty');
+    expect(testArea.find('textarea').props().placeholder).toEqual('your subcounty');
   });
   it('has the correct value', () => {
-    expect(textField.find('textarea').props().value).toEqual('busega');
+    expect(testArea.find('textarea').props().value).toEqual('busega');
   });
   it('has the correct name', () => {
-    expect(textField.find('textarea').props().name).toEqual('customName');
+    expect(testArea.find('textarea').props().name).toEqual('customName');
   });
   it('can render an error message', () => {
-    expect(textField.find('#fieldAreaError').text()).toEqual('some error msg');
+    expect(testArea.find('#fieldAreaError').text()).toEqual('some error msg');
   });
   it('has the correct bootstrap class for the html textarea control', () => {
-    expect(textField.find('textarea').props().className).toEqual('form-control');
+    expect(testArea.find('textarea').props().className).toEqual('form-control');
   });
   it('has the correct outter bootstrap class for outter div', () => {
-    expect(textField.find('#areaOutWrapper').props().className).toEqual('form-group has-error');
+    expect(testArea.find('#areaOutWrapper').props().className).toEqual('form-group has-error');
   });
   it('has the correct inner bootstrap class for the inner div around html textarea control', () => {
-    expect(textField.find('#areaInWrapper').props().className).toEqual('field');
+    expect(testArea.find('#areaInWrapper').props().className).toEqual('field');
   });
   it('can call the on change handler', () => {
-    textField.find('textarea').simulate('change');
+    testArea.find('textarea').simulate('change');
     expect(onChangeCalled).toEqual(true);
+  });
+  it('can render no error message if non is specified', () => {
+    const textarea = setup("");
+    expect(textarea.find('#fieldAreaError').text()).toEqual('');
+    expect(textarea.find('#areaOutWrapper').props().className).toEqual('form-group');
   });
 });
