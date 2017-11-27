@@ -9,9 +9,9 @@ const TextArea = (props) => {
   }
 
   return(
-    <div className={wrapperClass}>
+    <div id="areaOutWrapper" className={wrapperClass}>
       <label htmlFor={props.name}>{props.label}</label>
-      <div className="field">
+      <div id="areaInWrapper" className="field">
         <textarea
         name={props.name}
         className="form-control"
@@ -19,7 +19,7 @@ const TextArea = (props) => {
         value={props.value}
         onChange={props.onChange}
         placeholder={props.placeholder}></textarea>
-        <div style={{color: 'red'}}>{props.error}</div>
+        <div id="fieldAreaError" style={{color: 'red'}}>{props.error}</div>
       </div>
     </div>
   );
