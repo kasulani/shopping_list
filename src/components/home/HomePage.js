@@ -3,7 +3,7 @@ import { Link, browserHistory } from 'react-router';
 import TextInput from '../common/TextInput';
 import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
-import {loginUser} from "../../actions/authActions";
+import {authUser} from "../../actions/authActions";
 import PropTypes from 'prop-types';
 import toastr from "toastr";
 import {TOASTR_CONFIG} from "../../configs";
@@ -26,9 +26,10 @@ class HomePage extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.token){
-      browserHistory.push('/dashboard');
-    }
+    //console.log(this.props.status);
+    // if (this.props.token){
+    //   browserHistory.push('/dashboard');
+    // }
   }
 
   onChangeText(event){
@@ -68,20 +69,21 @@ class HomePage extends Component {
 
   onFormSubmit(event){
     event.preventDefault(); // tells the browser, don't submit the form
-    // make an api request to the auth/login endpoint via an action creator
+    // Validate form data
     if(!this.isLoginFormValid()){
       return;
     }
-    this.props.loginUser(this.state.user, (response)=>{ // callback
-      if (response.data.status == 'fail'){
+    // // make an api request to the auth/login endpoint via an action creator
+    this.props.authUser(this.state.user, 'login')
+      .then( () => {
+        if (this.props.status == 'fail'){
           toastr.error(
-            response.data.message, "Shopping List - Error", TOASTR_CONFIG);
-      }
-      /*if (response.data.token){
-        console.log(this.props.token);
-        browserHistory.push('/dashboard');
-      }*/
-    });
+           this.props.message, "Shopping List - Error", TOASTR_CONFIG);
+        }
+        if (this.props.token){
+          browserHistory.push('/dashboard');
+        }
+      });
   }
 
   render() {
@@ -123,23 +125,27 @@ class HomePage extends Component {
           </div>
         </div>
       </div>
-    );
-  }
-}
+    ); // return()
+  } //render()
+} // class HomePage
 
 HomePage.propTypes = {
-  loginUser: PropTypes.func.isRequired,
-  token: PropTypes.object.isRequired
+  authUser: PropTypes.func.isRequired,
+  token: PropTypes.object.isRequired,
+  status: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired
 };
 
 function mapStateToProps(state) {
   return{
-    token: state.user.token
+    token: state.user.token,
+    status: state.user.status,
+    message: state.user.message
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ loginUser },dispatch);
+  return bindActionCreators({ authUser },dispatch);
 }
 
 //connect helps us have components that can work with redux
