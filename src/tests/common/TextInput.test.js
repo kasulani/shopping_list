@@ -5,17 +5,17 @@ import TextInput from "../../components/common/TextInput";
 
 let onChangeCalled = false;
 
-function setup(){
+function setup(errorMsg){
   const props ={
     label:"city", name:"theName", type:"text", placeholder:"your city",
     value:"kampala", onChange: () => { onChangeCalled = true;},
-    error: "some error msg"
+    error: errorMsg
   };
   return shallow(<TextInput {...props}/>);
 }
 
 describe('Run tests on TextInput component', () => {
-  const textField = setup();
+  const textField = setup("some error msg");
   it('has the correct label', () => {
     expect(textField.find('label').text()).toEqual('city');
   });
@@ -46,5 +46,10 @@ describe('Run tests on TextInput component', () => {
   it('can call the on change handler', () => {
     textField.find('input').simulate('change');
     expect(onChangeCalled).toEqual(true);
+  });
+  it('can render no error message if non is specified', () => {
+    const field = setup("");
+    expect(field.find('#fieldError').text()).toEqual('');
+    expect(field.find('#inputOutWrapper').props().className).toEqual('form-group');
   });
 });
