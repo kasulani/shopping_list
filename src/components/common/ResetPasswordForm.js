@@ -5,7 +5,7 @@ import TextInput from './TextInput';
 const ResetPasswordForm = (props) => {
   return(
     <form id={props.formId} onSubmit={props.onFormSubmit}>
-      <TextInput
+      <TextInput id="password1"
         label="Old password"
         name="oldPassword"
         type="password"
@@ -14,7 +14,7 @@ const ResetPasswordForm = (props) => {
         value={props.ValueOfOldPasswordField}
         onChange={props.onChangeText}
       />
-      <TextInput
+      <TextInput id="password2"
         label="New password"
         name="newPassword"
         type="password"
@@ -23,7 +23,7 @@ const ResetPasswordForm = (props) => {
         value={props.ValueOfNewPasswordField}
         onChange={props.onChangeText}
       />
-      <TextInput
+      <TextInput id="password3"
         label="Confirm password"
         name="confirmPassword"
         type="password"
