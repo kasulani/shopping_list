@@ -5,7 +5,7 @@ import promiseMiddleware from "redux-promise";
 import {logger} from "redux-logger";
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-export default function configureStore(intialState){
+function configureStore(intialState){
   return createStore(
     rootReducer,
     intialState,
@@ -17,3 +17,7 @@ export default function configureStore(intialState){
       )
     ));
 }
+
+const store = configureStore();
+
+export default store;
