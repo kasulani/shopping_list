@@ -9,16 +9,16 @@ const TextInput = (props) => {
   }
 
   return(
-    <div className={wrapperClass}>
+    <div id="inputOutWrapper" className={wrapperClass}>
       <label htmlFor={props.name}>{props.label}</label>
-      <div className="field">
+      <div id="inputInWrapper" className="field">
         <input type={props.type}
           name={props.name}
           className="form-control"
           placeholder={props.placeholder}
           value={props.value}
           onChange={props.onChange}/>
-        <div style={{color: 'red'}}>{props.error}</div>
+        <div id="fieldError" style={{color: 'red'}}>{props.error}</div>
       </div>
     </div>
   );
