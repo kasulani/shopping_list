@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import NavBar from '../common/NavBar';
 import UserProfile from '../common/UserProfile';
-import Table from '../common/Table';
+import ShoppingListTable from '../common/ShoppingListTable';
 import SimplePager from '../common/SimplePager';
 import ListContainer from '../list/ListContainer';
 import {bindActionCreators} from "redux";
@@ -139,7 +139,7 @@ class DashBoard extends Component {
                 />
               }
             >
-              <Table onDeleteClick={this.setDeleteId} lists={this.props.shoppingLists}/>
+              <ShoppingListTable onDeleteClick={this.setDeleteId} lists={this.props.shoppingLists}/>
             </ListContainer>
           </div>
         </section>
