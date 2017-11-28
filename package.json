@@ -71,6 +71,13 @@
     "webpack-dev-middleware": "1.6.1",
     "webpack-hot-middleware": "2.10.0"
   },
+  "nyc": {
+    "exclude": [
+      "**/*.spec.js",
+      "tools/*.js",
+      "build"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kasulani/shopping_list.git"
