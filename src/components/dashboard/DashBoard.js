@@ -143,7 +143,10 @@ class DashBoard extends Component {
             </ListContainer>
           </div>
         </section>
-        <DeleteModal deleteFunc={this.deleteList}/>
+        <DeleteModal
+          action="Delete a list"
+          message="Are you sure you want to permanently delete this list from the database?"
+          deleteFunc={this.deleteList}/>
       {/*div-container*/}
       </div>
     );
