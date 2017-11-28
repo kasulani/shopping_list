@@ -9,14 +9,14 @@ const DeleteModal = (props) => {
         <div className="modal-content">
           <div className="modal-header">
             <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 className="modal-title" id="myModalLabel">Delete a list</h4>
+            <h4 className="modal-title" id="myModalLabel">{props.action}</h4>
           </div>
           <div className="modal-body">
-            <p>Do you want to do this delete operation?</p>
+            <p>{props.message}</p>
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button onClick={props.deleteFunc} type="button" data-dismiss="modal" className="btn btn-danger">Yes Delete</button>
+            <button id="cancelModalBtn" type="button" className="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button  id="deleteModalBtn" onClick={props.deleteFunc} type="button" data-dismiss="modal" className="btn btn-danger">Yes Delete</button>
           </div>
         </div>
       </div>
@@ -25,7 +25,9 @@ const DeleteModal = (props) => {
 };
 
 DeleteModal.propTypes = {
-  deleteFunc: PropTypes.func.isRequired
+  deleteFunc: PropTypes.func.isRequired,
+  action: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired
 };
 
 export default DeleteModal;
