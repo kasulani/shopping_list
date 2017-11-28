@@ -100,7 +100,10 @@ class ViewItems extends Component {
             </ListContainer>
           </div>
         </section>
-        <DeleteModal deleteFunc={this.deleteItem}/>
+        <DeleteModal
+          action="Delete an item"
+          message="Are you sure you want to permanently delete this item from the database?"
+          deleteFunc={this.deleteItem}/>
       {/*div-container*/}
       </div>
     );
