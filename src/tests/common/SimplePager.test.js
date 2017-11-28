@@ -54,6 +54,10 @@ describe('Run tests on SimplePager component', () => {
   it('shows the correct button text', () => {
     expect(simplePager.find('#nextBtn').text()).toEqual('NEXT PAGE');
   });
+  it('can call the next button on click handler', () => {
+    simplePager.find('#nextBtn').simulate('click');
+    expect(onNextButtonClickCalled).toEqual(true);
+  });
   it('can disable pager buttons if no page', () => {
     const pager = setup('none', 'none', 'true');
     expect(pager.find('#previousBtn').props().disabled).toEqual('disabled');
