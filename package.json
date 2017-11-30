@@ -74,6 +74,7 @@
   "nyc": {
     "exclude": [
       "**/*.spec.js",
+      "src/configs.js",
       "tools/*.js",
       "build"
     ]
