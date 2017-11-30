@@ -26,7 +26,8 @@ const Error404 = (props) => {
                   <h3>Opps! Items not found</h3>
                   <p>
                   We could not find the items you were looking for on this list. Meanwhile,
-                  you may return to <Link to="/dashboard">dashboard</Link> or try using the search form.
+                  you may return to <Link to="/dashboard">dashboard</Link> and add items to the list
+                  or try using the search form.
                   </p>
                 </div>
               </div>
