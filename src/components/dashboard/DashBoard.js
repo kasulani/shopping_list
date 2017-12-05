@@ -16,7 +16,7 @@ import {TOASTR_CONFIG} from "../../configs";
 import DeleteModal from '../common/DeleteModal';
 import { browserHistory } from 'react-router';
 
-class DashBoard extends Component {
+export class DashBoard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -76,14 +76,12 @@ class DashBoard extends Component {
     if(this.state.search.term != ""){
       this.props.getListsOnPage("/shoppinglists?q="+this.state.search.term);
     }
-    // console.log("/shoppinglists?q="+this.state.search.term);
   }
 
   onNextButtonClick(){
     // This the function will be called when user clicks on the next button of
     // the pager to fetch the next page
     if(this.props.next_page != 'none'){
-      // console.log(this.props.next_page);
       this.props.getListsOnPage(this.props.next_page);
     }
   }
@@ -97,7 +95,7 @@ class DashBoard extends Component {
   }
   onSearchTextChange(event){
     const search = this.state.search;
-    if (event.target.name == 'searchField'){
+    if (event.target.name === 'searchField'){
       search.term = event.target.value;
     }
     this.setState({search: search});
@@ -112,12 +110,6 @@ class DashBoard extends Component {
           onSearchTextChange={this.onSearchTextChange}
         />
         <section className="content">
-          {/*<div>
-            <ol className="breadcrumb">
-            <li className="active">
-              <span className="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Dashboard</li>
-            </ol>
-          </div>*/}
           <div className="row">
             <UserProfile
               username={this.props.userDetails.username}
@@ -166,7 +158,7 @@ DashBoard.propTypes = {
   message: PropTypes.string.isRequired
 };
 
-function mapStateToProps(state) {
+export function mapStateToProps(state) {
   return{
     next_page: state.shoppingLists.next_page,
     prev_page: state.shoppingLists.previous_page,
@@ -177,7 +169,7 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return bindActionCreators({getShoppingLists, deleteShoppingList, getUser, getListsOnPage},dispatch);
 }
 
