@@ -30,14 +30,14 @@ LogOut.propTypes = {
   user: PropTypes.string.isRequired
 };
 
-function mapStateToProps(state) {
-  return {
-    token: state.user.token
-  };
-}
+// function mapStateToProps(state) {
+//   return {
+//     token: state.user.token
+//   };
+// }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({authUser},dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LogOut);
+export default connect(null, mapDispatchToProps)(LogOut);
