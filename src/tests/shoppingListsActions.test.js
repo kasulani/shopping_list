@@ -192,7 +192,7 @@ describe('Test Shopping Lists Action Creators', () => {
         const payload = {
             id: "5",title: "test list 5", 
             description: "this is a edited test list 5",
-            status: "pass", message: "list created successfully"
+            status: "pass", message: "list updated"
         };
         moxios.wait(() => {
             const request = moxios.requests.mostRecent();
