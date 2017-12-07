@@ -23,10 +23,11 @@ export function authUser(user, authAction){
     };
   }
   if(authAction === 'logout'){
+    const promise = AXIOS_INSTANCE.get('/auth/logout');
     // make an api call here
     return {
       type:LOG_OUT,
-      payload: user
+      payload: promise
     };
   }
 }
