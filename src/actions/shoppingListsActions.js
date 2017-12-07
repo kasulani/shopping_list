@@ -9,8 +9,6 @@ import {AXIOS_INSTANCE, errorHandler} from "../configs";
 
 export function getUser(){
   const promise = AXIOS_INSTANCE.get("/users");
-  //promise.catch(errorHandler);
-
   return {
     type:GET_USER,
     payload: promise
@@ -34,7 +32,6 @@ export function getShoppingList(listId){
   // This methods will return a single list of a logged in user
   let url = "/shoppinglists/"+listId;
   const promise = AXIOS_INSTANCE.get(url);
-  //promise.catch(errorHandler);
 
   return {
     type:FETCH_SHOPPING_LIST,
@@ -98,7 +95,6 @@ export function deleteShoppingList(ListToDelete){
 
 export function deleteShoppingListItem(ItemToDelete, ListId){
   let url = `/shoppinglists/${ListId}/items/${ItemToDelete}`;
-  console.log(url);
   const promise = AXIOS_INSTANCE.delete(url);
 
   return {
