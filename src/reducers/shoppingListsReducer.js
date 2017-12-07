@@ -87,7 +87,6 @@ export function getShoppingListsReducer(state = {}, action){
   switch (action.type) {
     case FETCH_SHOPPING_LISTS:
     case FETCH_SHOPPING_LISTS_ON_A_PAGE:
-      // console.log(action.payload.data);
       return action.payload.data;
     case LOG_OUT:
       return {};
@@ -110,11 +109,12 @@ export function addNewItemReducer(state = {}, action){
 export function getShoppingListItemsReducer(state = {}, action){
   switch (action.type) {
     case FETCH_SHOPPING_LIST_ITEMS:
-      try {
-        return action.payload.data.items;
-      } catch (e) {
-        return state;
-      }
+      return action.payload.data.items;
+      // try {
+      //   return action.payload.data.items;
+      // } catch (e) {
+      //   return state;
+      // }
     case LOG_OUT:
       return {};
     default:
