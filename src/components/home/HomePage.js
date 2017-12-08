@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import toastr from "toastr";
 import {TOASTR_CONFIG} from "../../configs";
 
-class HomePage extends Component {
+export class HomePage extends Component {
   constructor(props){
     super(props);
     /* Note:
@@ -25,12 +25,12 @@ class HomePage extends Component {
     this.isLoginFormValid = this.isLoginFormValid.bind(this); // validate form data
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    //console.log(this.props.status);
-    // if (this.props.token){
-    //   browserHistory.push('/dashboard');
-    // }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log(this.props.status);
+  //   if (this.props.token){
+  //     browserHistory.push('/dashboard');
+  //   }
+  // }
 
   onChangeText(event){
     const user = this.state.user;
@@ -60,7 +60,7 @@ class HomePage extends Component {
 
     if (this.state.user.password.length == 0){
       // this means no password was typed in this field
-      errors.password = "please enter a password";
+      errors.password = "Please enter a password";
       isValid = false;
     }
     this.setState({errors: errors});
@@ -73,7 +73,7 @@ class HomePage extends Component {
     if(!this.isLoginFormValid()){
       return;
     }
-    // // make an api request to the auth/login endpoint via an action creator
+    // make an api request to the auth/login endpoint via an action creator
     this.props.authUser(this.state.user, 'login')
       .then( () => {
         if (this.props.status == 'fail'){
@@ -136,7 +136,7 @@ HomePage.propTypes = {
   message: PropTypes.string.isRequired
 };
 
-function mapStateToProps(state) {
+export function mapStateToProps(state) {
   return{
     token: state.user.token,
     status: state.user.status,
@@ -144,7 +144,7 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return bindActionCreators({ authUser },dispatch);
 }
 
