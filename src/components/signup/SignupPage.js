@@ -8,7 +8,8 @@ import PropTypes from 'prop-types';
 import toastr from "toastr";
 import {TOASTR_CONFIG} from "../../configs";
 
-class SignupPage extends React.Component {
+
+export class SignupPage extends React.Component {
   constructor(props){
     super(props);
 
@@ -60,19 +61,19 @@ class SignupPage extends React.Component {
 
     if (this.state.newUser.password1.length == 0){
       // this means no password was typed in this field
-      errors.password1 = "please enter a password";
+      errors.password1 = "Please enter a password";
       isValid = false;
     }
 
     if (this.state.newUser.password2.length == 0){
       // this means no password was typed in this field
-      errors.password2 = "please enter a password";
+      errors.password2 = "Please enter a password";
       isValid = false;
     }
 
     if (!(this.state.newUser.password2 == this.state.newUser.password1)){
       // this means the two passwords don't match
-      errors.password2 = "please make sure these passwords match";
+      errors.password2 = "Please make sure these passwords match";
       errors.password1 = errors.password2;
       isValid = false;
     }
@@ -163,11 +164,11 @@ SignupPage.propTypes = {
   registerUser: PropTypes.func.isRequired
 };
 
-function mapStateToProps(state) {
+export function mapStateToProps(state) {
   return { newUser: state.newUser};
 }
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return bindActionCreators({registerUser},dispatch);
 }
 
