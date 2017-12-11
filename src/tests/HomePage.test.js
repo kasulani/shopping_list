@@ -35,13 +35,13 @@ describe('Run tests on HomePage component', () => {
         expect(homePage.state().errors.password).toEqual("Please enter a password");
     });
     // test on change event handler
-    it('it can set the value of the username', ()=>{
+    it('can set the value of the username', ()=>{
         const field = homePage.find('TextInput').first().find('input');
         field.node.value = "testuser@mail.com";
         field.simulate('change', field);
         expect(homePage.state().user.username).toEqual("testuser@mail.com");
     });
-    it('it can set the value of the password', ()=>{
+    it('can set the value of the password', ()=>{
         const field = homePage.find('TextInput').last().find('input');
         field.node.value = "password";
         field.simulate('change', field);
@@ -76,5 +76,5 @@ describe('Run tests on HomePage component', () => {
     });
     it('mapDispatchToProps behaves correctly', ()=>{
         mapDispatchToProps(store.dispatch);
-      });
+    });
 });
