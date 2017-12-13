@@ -14,7 +14,7 @@ import {Link,browserHistory} from "react-router";
 import _ from 'lodash';
 
 
-class AddItem extends Component {
+export class AddItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,13 +39,13 @@ class AddItem extends Component {
     this.setState({errors: {}}); // clear any errors
     if (this.state.newItem.name.length == 0){
       // this means nothing has been typed in this field
-      errors.name = "Please enter a name for the shopping list";
+      errors.name = "Please enter a name for the shopping list item";
       isValid = false;
     }
 
     if (this.state.newItem.description.length == 0){
       // this means no password was typed in this field
-      errors.description = "Please enter a description for the shopping list";
+      errors.description = "Please enter a description for the shopping list item";
       isValid = false;
     }
     this.setState({errors: errors});
@@ -103,14 +103,18 @@ class AddItem extends Component {
               title={`${this.props.selectedShoppingList.title}: Add a new item`}>
               {[
                 <ShoppingListForm
-                  key="1" formId="listForm" onChangeText={this.onChangeText}
+                  key="1" formId="itemForm" onChangeText={this.onChangeText}
                   onFormSubmit={this.onFormSubmit}
+                  LabelOfNameField="Item name"
+                  NameFieldPlaceholder="Enter a unique name for your item"
                   ValueOfNameField={this.state.newItem.name}
                   ValidationErrorsOfNameField={this.state.errors.name}
+                  LabelOfDescriptionField="Description"
+                  DescriptionFieldPlaceholder="Enter a short description about your item"
                   ValueOfDescriptionField={this.state.newItem.description}
                   ValidationErrorsOfDescriptionField={this.state.errors.description}/>,
 
-                <SubmitButton key="2" formId="listForm" buttonText="Add new List"/>,
+                <SubmitButton key="2" formId="listForm" buttonText="Add new Item"/>,
                 <Link key="3" to="/dashboard"
                   className="btn btn-sm btn-danger pull-right"
                   style={{marginRight: 0.5 + 'em'}}
@@ -135,7 +139,7 @@ AddItem.propTypes = {
   userDetails: PropTypes.object.isRequired
 };
 
-function mapStateToProps(state, ownProps) {
+export function mapStateToProps(state, ownProps) {
   return{
     userDetails: state.userDetails,
     status:state.newShoppingListItem.status,
@@ -144,7 +148,7 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return bindActionCreators({addNewItem},dispatch);
 }
 export default connect(mapStateToProps, mapDispatchToProps)(AddItem);
