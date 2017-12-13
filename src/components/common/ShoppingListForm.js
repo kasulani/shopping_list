@@ -4,21 +4,21 @@ import TextInput from './TextInput';
 import TextArea from './TextArea';
 
 const ShoppingListForm = (props) => {
-  return(
+  return (
     <form id={props.formId} onSubmit={props.onFormSubmit}>
       <TextInput id="nameOfList"
-        label="List name"
+        label={props.LabelOfNameField}
         name="listName"
         type="text"
-        placeholder="Enter a unique name for your list"
+        placeholder={props.NameFieldPlaceholder}
         error={props.ValidationErrorsOfNameField}
         value={props.ValueOfNameField}
         onChange={props.onChangeText}
       />
       <TextArea id="descriptionOfList"
-        label="Description"
+        label={props.LabelOfDescriptionField}
         name="listDescription"
-        placeholder="Enter a short description about your list"
+        placeholder={props.DescriptionFieldPlaceholder}
         rows="3"
         error={props.ValidationErrorsOfDescriptionField}
         value={props.ValueOfDescriptionField}
@@ -32,8 +32,12 @@ ShoppingListForm.propTypes = {
   formId: PropTypes.string.isRequired,
   ValidationErrorsOfNameField: PropTypes.string,
   ValidationErrorsOfDescriptionField: PropTypes.string,
+  NameFieldPlaceholder: PropTypes.string,
+  DescriptionFieldPlaceholder: PropTypes.string,
+  LabelOfNameField: PropTypes.string,
   ValueOfNameField: PropTypes.string.isRequired,
   ValueOfDescriptionField: PropTypes.string.isRequired,
+  LabelOfDescriptionField: PropTypes.string.isRequired,
   onChangeText: PropTypes.func.isRequired,
   onFormSubmit: PropTypes.func.isRequired
 };
