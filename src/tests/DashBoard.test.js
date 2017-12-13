@@ -1,7 +1,7 @@
 import expect from "expect";
 import React from "react";
-import {mount, shallow} from "enzyme";
-import {DashBoard, mapStateToProps, mapDispatchToProps} from "../components/dashboard/DashBoard";
+import { mount, shallow } from "enzyme";
+import { DashBoard, mapStateToProps, mapDispatchToProps } from "../components/dashboard/DashBoard";
 import store from "../store/configStore";
 
 let getListsOnPageCalled = false;
@@ -22,13 +22,13 @@ let shoppingLists = [
 ];
 let status = 'pass';
 let userDetails = {
-  username:"testuser@mail.com", description:"open source. open mind",
+  username: "testuser@mail.com", description: "open source. open mind",
   num_of_items: 200, num_of_lists: 100
 };
 let next_page = "/shoppinglists?page=2&limit=2";
 let previous_page = "/shoppinglists?page=1&limit=2";
 
-function configProps(shoppingLists, status, next_page, previous_page){
+function configProps(shoppingLists, status, next_page, previous_page) {
   const props = {
     userDetails: userDetails,
     shoppingLists: shoppingLists,
@@ -38,7 +38,7 @@ function configProps(shoppingLists, status, next_page, previous_page){
     getShoppingLists: () => { getShoppingListsCalled = true; },
     getUser: () => { getUserCalled = true; },
     deleteShoppingList: () => {
-      deleteShoppingListCalled =true;
+      deleteShoppingListCalled = true;
       return Promise.resolve();
     },
     getListsOnPage: () => { getListsOnPageCalled = true; }
@@ -48,7 +48,7 @@ function configProps(shoppingLists, status, next_page, previous_page){
 
 describe('Run tests on DashBoard component', () => {
   const dashboard = mount(<DashBoard
-    {...configProps(shoppingLists, status, next_page, previous_page)}/>);
+    {...configProps(shoppingLists, status, next_page, previous_page) } />);
   // test markup elements
   it('has a navigation bar', () => {
     expect(dashboard.find('NavBar').length).toBe(1);
@@ -57,20 +57,20 @@ describe('Run tests on DashBoard component', () => {
     expect(dashboard.find('UserProfile').length).toBe(1);
   });
   it('user profile section renders the correct user details passed via props',
-  () => {
-    const userProfile = dashboard.find('UserProfile');
-    expect(userProfile.find('#profileName').text()).toEqual('testuser@mail.com');
-    expect(userProfile.find('#listCount').text()).toEqual('100');
-    expect(userProfile.find('#itemCount').text()).toEqual('200');
-    expect(userProfile.find('#profileDescription').text()).
-    toEqual('open source. open mind');
-  });
+    () => {
+      const userProfile = dashboard.find('UserProfile');
+      expect(userProfile.find('#profileName').text()).toEqual('testuser@mail.com');
+      expect(userProfile.find('#listCount').text()).toEqual('100');
+      expect(userProfile.find('#itemCount').text()).toEqual('200');
+      expect(userProfile.find('#profileDescription').text()).
+        toEqual('open source. open mind');
+    });
   it('has a list container', () => {
     expect(dashboard.find('ListContainer').length).toBe(1);
   });
   it('list container shows the correct title when the table has shopping lists', () => {
     expect(dashboard.find('ListContainer').
-    find('h3').text()).toBe(' Here are your shopping lists ');
+      find('h3').text()).toBe(' Here are your shopping lists ');
   });
   it('has a shopping list table', () => {
     expect(dashboard.find('ShoppingListTable').length).toBe(1);
@@ -112,14 +112,14 @@ describe('Run tests on DashBoard component', () => {
     expect(getListsOnPageCalled).toEqual(true);
   });
   // delete a shopping list in the table
-  it('can delete the first shopping list in the table', ()=>{
+  it('can delete the first shopping list in the table', () => {
     const deleteListBtn = dashboard.find('ShoppingListTable').
-    find('#deleteListBtn').first();
+      find('#deleteListBtn').first();
     deleteListBtn.simulate('click');
     expect(dashboard.state().shoppingList.id).toBe(15);
   });
   // test delete modal behaviour
-  it('can confirm delete operation using the delete dialog', ()=>{
+  it('can confirm delete operation using the delete dialog', () => {
     deleteShoppingListCalled = false;
     const deleteModalBtn = dashboard.find('DeleteModal').find('#deleteModalBtn');
     deleteModalBtn.simulate('click');
@@ -128,19 +128,19 @@ describe('Run tests on DashBoard component', () => {
   // test the branch where the status is fail
   shoppingLists = []; status = 'fail';
   const dboard = mount(<DashBoard
-    {...configProps(shoppingLists, status, 'none', 'none')}/>);
+    {...configProps(shoppingLists, status, 'none', 'none') } />);
   it('list container shows the correct title when the table has no shopping lists', () => {
     expect(dboard.find('ListContainer').
-    find('h3').text()).toBe(' Welcome! Add your first list ');
+      find('h3').text()).toBe(' Welcome! Add your first list ');
   });
-  it('shows the right toastr message when status is fail', ()=>{
+  it('shows the right toastr message when status is fail', () => {
     deleteShoppingListCalled = false;
     const deleteModalBtn = dboard.find('DeleteModal').find('#deleteModalBtn');
     deleteModalBtn.simulate('click');
     expect(deleteShoppingListCalled).toEqual(true);
   });
   //test mapStateToProps
-  it('mapStateToProps behaves correctly', ()=>{
+  it('mapStateToProps behaves correctly', () => {
     const state = {
       shoppingLists: {
         lists: [{
@@ -151,7 +151,7 @@ describe('Run tests on DashBoard component', () => {
         next_page: 'none',
         previous_page: 'none'
       },
-      deletedShoppingList:{
+      deletedShoppingList: {
         status: 'pass',
         message: 'this is a pass message'
       },
@@ -173,7 +173,7 @@ describe('Run tests on DashBoard component', () => {
     //
     expect(mapStateToProps(state)).toEqual(expected);
   });
-  it('mapDispatchToProps behaves correctly', ()=>{
+  it('mapDispatchToProps behaves correctly', () => {
     mapDispatchToProps(store.dispatch);
   });
 });
