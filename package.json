@@ -78,6 +78,7 @@
       "**/*.spec.js",
       "src/configs.js",
       "tools/*.js",
+      "src/**/*.test.js",
       "build"
     ]
   },
