@@ -131,7 +131,7 @@ describe('Run tests on DashBoard component', () => {
     {...configProps(shoppingLists, status, 'none', 'none') } />);
   it('list container shows the correct title when the table has no shopping lists', () => {
     expect(dboard.find('ListContainer').
-      find('h3').text()).toBe(' Welcome! Add your first list ');
+      find('h3').text()).toBe(' Welcome! Add your first shopping list ');
   });
   it('shows the right toastr message when status is fail', () => {
     deleteShoppingListCalled = false;
