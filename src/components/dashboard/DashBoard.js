@@ -44,7 +44,7 @@ export class DashBoard extends Component {
     if (this.props.shoppingLists){
       let obj = this.props.shoppingLists;
       if(Object.keys(obj).length === 0){
-        return "Welcome! Add your first list"; // this shows for a first time user
+        return "Welcome! Add your first shopping list"; // this shows for a first time user
       }
       return "Here are your shopping lists"; // this shows when user has lists
     }
