@@ -13,7 +13,7 @@ import PropTypes from "prop-types";
 import {Link,browserHistory} from "react-router";
 
 
-class AddList extends Component {
+export class AddList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -98,8 +98,12 @@ class AddList extends Component {
                 <ShoppingListForm
                   key="1" formId="listForm" onChangeText={this.onChangeText}
                   onFormSubmit={this.onFormSubmit}
+                  LabelOfNameField="List name"
+                  NameFieldPlaceholder="Enter a unique name for your list"
                   ValueOfNameField={this.state.newList.name}
                   ValidationErrorsOfNameField={this.state.errors.name}
+                  LabelOfDescriptionField="Description"
+                  DescriptionFieldPlaceholder="Enter a short description about your list"
                   ValueOfDescriptionField={this.state.newList.description}
                   ValidationErrorsOfDescriptionField={this.state.errors.description}/>,
 
@@ -127,7 +131,7 @@ AddList.propTypes = {
   userDetails: PropTypes.object.isRequired
 };
 
-function mapStateToProps(state) {
+export function mapStateToProps(state) {
   return{
     userDetails: state.userDetails,
     status: state.newShoppingList.status,
@@ -135,7 +139,7 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return bindActionCreators({addNewShoppingList},dispatch);
 }
 export default connect(mapStateToProps, mapDispatchToProps)(AddList);
