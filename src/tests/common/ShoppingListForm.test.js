@@ -8,6 +8,10 @@ let onFormSubmitCalled = false;
 
 function setup(){
   const props ={
+    LabelOfDescriptionField:"Description",
+    LabelOfNameField:"List name",
+    NameFieldPlaceholder:"Enter a unique name for your list",
+    DescriptionFieldPlaceholder:"Enter a short description about your list",
     ValueOfDescriptionField:"some description",
     ValidationErrorsOfDescriptionField:"some description error",
     ValueOfNameField:"some list name", onChangeText: () => { onChangeCalled = true;},
