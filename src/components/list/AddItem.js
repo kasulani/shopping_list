@@ -114,7 +114,7 @@ export class AddItem extends Component {
                   ValueOfDescriptionField={this.state.newItem.description}
                   ValidationErrorsOfDescriptionField={this.state.errors.description}/>,
 
-                <SubmitButton key="2" formId="listForm" buttonText="Add new Item"/>,
+                <SubmitButton key="2" formId="itemForm" buttonText="Add new List"/>,
                 <Link key="3" to="/dashboard"
                   className="btn btn-sm btn-danger pull-right"
                   style={{marginRight: 0.5 + 'em'}}
