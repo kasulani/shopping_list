@@ -21,15 +21,15 @@ const Error404 = (props) => {
               </Link>,
               <section key="2" className="content">
               <div className="error-page">
-                <h2 className="headline text-yellow">404</h2>
-                <div className="error-content">
-                  <h3>Opps! Items not found</h3>
-                  <p>
-                  We could not find the items you were looking for on this list. Meanwhile,
-                  you may return to <Link to="/dashboard">dashboard</Link> and add items to the list
-                  or try using the search form.
+                {/*<h2 className="headline text-yellow">404</h2>*/}
+                {/*<div className="error-content">*/}
+                <h3>Opps! Items not found</h3>
+                <p>
+                We could not find the items you were looking for on this list. Please 
+                return to the <Link to="/dashboard">dashboard</Link> and add items to the list
+                or try using the search form.
                   </p>
-                </div>
+                {/*</div>*/}
               </div>
             </section>]}
           </ListContainer>
