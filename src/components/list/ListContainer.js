@@ -36,6 +36,7 @@ class ListContainer extends Component{
 
 ListContainer.propTypes = {
   title: PropTypes.string,
+  icon: PropTypes.string,
   children: PropTypes.object.isRequired,
   tools: PropTypes.object.isRequired,
   footer: PropTypes.object.isRequired
