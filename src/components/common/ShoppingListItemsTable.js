@@ -54,7 +54,8 @@ const ShoppingListItemsTable = (props) => {
 
 ShoppingListItemsTable.propTypes = {
   listId: PropTypes.number.isRequired,
-  items: PropTypes.object.isRequired
+  items: PropTypes.object.isRequired,
+  onDeleteClick: PropTypes.func.isRequired
 };
 
 export default ShoppingListItemsTable;
