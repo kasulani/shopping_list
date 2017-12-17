@@ -1,7 +1,7 @@
 # Shopping List React app
-[![Build Status](https://travis-ci.org/kasulani/shopping_list.svg?branch=master)](https://travis-ci.org/kasulani/shoppinglist_api)
-[![Coverage Status](https://coveralls.io/repos/github/kasulani/shopping_list/badge.svg?branch=master)](https://coveralls.io/github/kasulani/shoppinglist_api?branch=master)
-[![Code Climate](https://codeclimate.com/github/kasulani/shopping_list.svg)](https://codeclimate.com/github/kasulani/shoppinglist_api)
+[![Build Status](https://travis-ci.org/kasulani/shopping_list.svg?branch=master)](https://travis-ci.org/kasulani/shopping_list)
+[![Coverage Status](https://coveralls.io/repos/github/kasulani/shopping_list/badge.svg?branch=master)](https://coveralls.io/github/kasulani/shopping_list?branch=master)
+[![Code Climate](https://codeclimate.com/github/kasulani/shopping_list.svg)](https://codeclimate.com/github/kasulani/shopping_list)
 ## About
 This is a web app created using facebook's react javascript library for a shopping list application that allows users to record and share things they want
 to spend money on and keep track of their shopping lists.
