@@ -29,7 +29,7 @@ describe('Run tests on UserProfile component', () => {
     toEqual('Add something about yourself, please head over to your profile and complete it.');
   });
   it('can render the correct profile description if description is provided', () => {
-    const profile = setup("this is a brief description")
+    const profile = setup("this is a brief description");
     expect(profile.find('#profileDescription').text()).
     toEqual('this is a brief description');
   });
