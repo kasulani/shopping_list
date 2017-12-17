@@ -16,7 +16,8 @@ const SubmitButton = (props) => {
 
 SubmitButton.propTypes = {
   formId: PropTypes.string.isRequired,
-  buttonText: PropTypes.string.isRequired
+  buttonText: PropTypes.string.isRequired,
+  buttonClass: PropTypes.string.isRequired
 };
 
 export default SubmitButton;
