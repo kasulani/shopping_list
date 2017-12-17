@@ -64,7 +64,7 @@ describe('Run tests on ShoppingListTable component', () => {
     toEqual('btn btn-danger btn-xs');
   });
   it('can call delete list on click handler', () => {
-    tableOfLists.find('#deleteListBtn').simulate('click')
+    tableOfLists.find('#deleteListBtn').simulate('click');
     expect(onDeleteCalled).toEqual(true);
   });
 });
