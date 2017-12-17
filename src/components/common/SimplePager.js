@@ -29,4 +29,12 @@ const SimplePager = (props) => {
   }
 };
 
+SimplePager.propTypes = {
+  show: PropTypes.string.isRequired,
+  onPrevButtonClick: PropTypes.func.isRequired,
+  prev_page_state: PropTypes.string.isRequired,
+  onNextButtonClick: PropTypes.func.isRequired,
+  next_page_state: PropTypes.string.isRequired
+};
+
 export default SimplePager;
