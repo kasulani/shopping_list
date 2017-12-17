@@ -39,4 +39,11 @@ const UserProfile = (props) => {
   );
 };
 
+UserProfile.propTypes = {
+  username: PropTypes.string.isRequired,
+  lists: PropTypes.string.isRequired,
+  items: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
+};
+
 export default UserProfile;
