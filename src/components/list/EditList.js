@@ -101,13 +101,18 @@ class EditList extends Component {
             lists={this.props.userDetails.num_of_lists}
             items={this.props.userDetails.num_of_items}/>
             <ListContainer
+              icon="glyphicon glyphicon-edit"
               title="Edit a shopping list">
               {[
                 <ShoppingListForm
                   key="1" formId="listForm" onChangeText={this.onChangeText}
                   onFormSubmit={this.onFormSubmit}
+                  LabelOfNameField="List Name"
+                  NameFieldPlaceholder="Enter a unique name for your list"
                   ValueOfNameField={this.state.currentList.name}
                   ValidationErrorsOfNameField={this.state.errors.name}
+                  LabelOfDescriptionField="Description"
+                  DescriptionFieldPlaceholder="Enter a short description about your list"
                   ValueOfDescriptionField={this.state.currentList.description}
                   ValidationErrorsOfDescriptionField={this.state.errors.description}/>,
 
@@ -139,11 +144,12 @@ EditList.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
+  // console.log(state.shoppingLists);
   return{
     userDetails: state.userDetails,
     status: state.editedShoppingList.status,
     message: state.editedShoppingList.message,
-    selectedShoppingList: _.mapKeys(state.shoppingLists, 'id')[ownProps.params.id]
+    selectedShoppingList: _.mapKeys(state.shoppingLists.lists, 'id')[ownProps.params.id]
   };
 }
 
