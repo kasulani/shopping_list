@@ -41,3 +41,7 @@ To run this application on a *nix OS, execute the following command.
     $ npm start
 ```
 Then navigate to http://localhost:3000 to begin using the app on your local machine
+## Demo video
+You can view a demo of this app here
+
+[![Demo video](http://img.youtube.com/vi/9tEEQP9B9Mo/0.jpg)](https://www.youtube.com/watch?v=9tEEQP9B9Mo)
